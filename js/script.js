@@ -426,4 +426,52 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+const container = document.querySelector('.faq-container');
+const prevBtn = document.createElement('button');
+const nextBtn = document.createElement('button');
+
+// Add navigation buttons dynamically
+prevBtn.textContent = '‹';
+nextBtn.textContent = '›';
+prevBtn.classList.add('faq-navigation-btn');
+nextBtn.classList.add('faq-navigation-btn');
+
+const navigation = document.createElement('div');
+navigation.className = 'faq-navigation';
+navigation.append(prevBtn, nextBtn);
+
+document.querySelector('.faq-section').appendChild(navigation);
+
+let currentScrollPosition = 0;
+const scrollAmount = 320; // Scroll by the width of one card + gap
+
+prevBtn.addEventListener('click', () => {
+  currentScrollPosition -= scrollAmount;
+  if (currentScrollPosition < 0) {
+    currentScrollPosition = 0; // Prevent scrolling beyond the start
+  }
+  container.style.transform = `translateX(-${currentScrollPosition}px)`;
+});
+
+nextBtn.addEventListener('click', () => {
+  const maxScroll =
+    container.scrollWidth - container.clientWidth;
+  currentScrollPosition += scrollAmount;
+  if (currentScrollPosition > maxScroll) {
+    currentScrollPosition = maxScroll; // Prevent scrolling beyond the end
+  }
+  container.style.transform = `translateX(-${currentScrollPosition}px)`;
+});
+
+// Enable or disable buttons based on scroll position
+const updateButtonState = () => {
+  prevBtn.disabled = currentScrollPosition === 0;
+  nextBtn.disabled =
+    currentScrollPosition ===
+    container.scrollWidth - container.clientWidth;
+};
+
+container.addEventListener('scroll', updateButtonState);
+
+
 

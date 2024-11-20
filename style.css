@@ -78,28 +78,6 @@ section {
 
 }
 
-.imgbg {
-  background-image: url('img/pose.png'); /* Replace 'your-image.jpg' with the path to your image */
-  background-size: cover; /* Ensures the image covers the entire section */
-  background-position: center; /* Centers the image */
-  background-attachment: fixed; /* Makes the background fixed when scrolling */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  height: 80vh; /* Sets the height of the section to 100% of the viewport height */
-  position: relative; /* Sets the position for layering */
-  opacity: 0.8; /* Reduces the background image opacity */
-}
-
-.imgbg::before {
-  content: ''; /* Creates a pseudo-element for an overlay effect */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Adjust the color and transparency of the overlay */
-  z-index: 1; /* Places it behind the content but above the background */
-}
-
 .navbar .menu li a:hover {
   color: #555;
   text-decoration: none;
@@ -394,19 +372,123 @@ h1 {
 }
 
 .aboutus {
-  background-image: url(https://t4.ftcdn.net/jpg/02/48/06/51/360_F_248065175_UKqGpkZFZG3mPBKKKpxseqS6VlIlmzq7.jpg);
+  background: linear-gradient(135deg, #FFCCB3, #D8A7B1, #B9A9D9);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* Styling the header */
+.header {
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(90deg, #ff7eb3, #ff758c, #ff6b6b);
+  background-size: 300%;
+  animation: gradientBG 5s ease infinite;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Animation for gradient background */
+@keyframes gradientBG {
+  0% {
+    background-position: 0%;
+  }
+  50% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
+/* Adding glow animation */
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255, 105, 135, 0.4);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 30px rgba(255, 105, 135, 0.4);
+  }
+  to {
+    box-shadow: 0 0 60px rgba(255, 105, 135, 0.8);
+  }
+}
+
+/* Add hover effect */
+.header:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
 
 .gallery {
+  background: linear-gradient(45deg, #B9A9D9, #FFCCB3, #A8E6CF);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-family: sans-serif;
 }
+/* Styling for the header */
+.head {
+  font-family: 'Poppins', sans-serif; /* Clean and modern font */
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  background: linear-gradient(90deg, #ffd1a9, #ffc078, #ff9b7c);
+  background-size: 200%;
+  padding: 20px;
+  border-radius: 15px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  animation: pastelGlow 5s ease infinite, bounce 2s infinite;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient animation for a smooth color flow */
+@keyframes pastelGlow {
+  0% {
+    background-position: 0%;
+  }
+  50% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
+/* Adding a gentle bounce effect */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Hover effect */
+.head:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.8);
+}
+
 
 h1 {
   font-family: "Pacifico", cursive;
@@ -419,7 +501,7 @@ h1 {
   width: 90%;
   margin: 0 auto;
 
-  div {
+    div {
     width: 150px;
     margin: 0 1.5rem 1.5rem 0;
     display: inline-block;
@@ -455,6 +537,7 @@ h1 {
 }
 
 #messages {
+  margin-top: 180px;
   background-color: #fff;
   padding: 20px;
   border-radius: 15px;
@@ -469,7 +552,7 @@ h1 {
 
 .title {
   font-size: 2em;
-  color: #ff6b6b;
+  color: #f5e9e9;
   margin-bottom: 10px;
 }
 
@@ -493,6 +576,7 @@ h1 {
 
 .messages {
   font-size: 1.2em;
+  background: linear-gradient(45deg, #D8A7B1, #B9A9D9); /* Dusty Rose to Soft Lilac */
   line-height: 1.6;
   color: #333;
   margin: 20px 0;
@@ -507,10 +591,10 @@ textarea {
   width: 80%;
   padding: 10px;
   margin: 10px 0;
-  border: 2px solid #ff6b6b;
   border-radius: 8px;
   font-size: 1em;
   outline: none;
+  border: 2px solid #FFD700; /* Gold border */
 }
 
 input::placeholder,
@@ -541,4 +625,229 @@ button:hover {
 .hidden-surprise img {
   max-width: 100%;
   border-radius: 15px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 72px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.btn {
+  color: gray;
+  background-color: white;
+  border: none;
+  border-radius: 50px;
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #ff4690;
+  border: 2px solid white;
+}
+
+@media (max-width: 1148px) {
+  h1 {
+      font-size: 50px;
+  }
+  .btn {
+      width: 150px;
+      height: 40px;
+  }
+}
+
+@media (max-width: 795px) {
+  h1 {
+      font-size: 40px;
+  }
+}
+
+#showMessage {
+  display: none;
+}
+
+#showMessage h1 {
+  font-size: 50px;
+}
+
+/* Animate Text */
+.ml6 {
+  position: relative;
+}
+
+.ml6 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml6 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+/* Footer */
+footer {
+  color: #fff;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+.propose {
+            background: linear-gradient(117deg, #ff41f7 0%, rgba(255, 73, 73, 0.81) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+
+/* Apply a modern font family */
+body {
+  font-family: 'Poppins', sans-serif; /* Clean and modern font */
+}
+/* Apply a modern font family */
+body {
+  font-family: 'Poppins', sans-serif; /* Clean and modern font */
+  margin: 0;
+  padding: 0;
+}
+
+.faq {
+  padding: 50px 0;
+}
+
+.max-width {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq-section {
+  text-align: center;
+}
+
+.title1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* General FAQ Section Styling */
+.faq-section {
+  display: flex;
+  flex-direction: column; /* Stack the header and FAQ cards vertically */
+  align-items: center; /* Center the content */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+  background: linear-gradient(117deg, #ff41f7 0%, rgba(255, 73, 73, 0.81) 100%);
+
+  border-radius: 20px; /* Rounded edges for the section */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* FAQ Cards Container */
+.faq-cards-container {
+  display: flex;
+  gap: 20px; /* Space between the cards */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding: 20px;
+  scroll-behavior: smooth; /* Smooth scrolling */
+  width: 100%; /* Make sure the container takes full width */
+  justify-content: start; /* Align cards to the left */
+}
+
+/* Individual FAQ Cards */
+.faq-card {
+  flex: 0 0 300px; /* Fixed card width */
+  background: rgba(255, 255, 255, 0.8); /* Glassmorphism: translucent white */
+  backdrop-filter: blur(10px); /* Glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Subtle border */
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Elevated shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* FAQ Card Hover Effect */
+.faq-card:hover {
+  transform: translateY(-10px) scale(1.03); /* Slight lift and scale */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* FAQ Card Titles */
+.faq-card h3 {
+  font-family: 'Poppins', sans-serif; /* Clean modern font */
+  font-size: 1.5em;
+  color: #00796b; /* Calming teal */
+  margin-bottom: 10px;
+  text-transform: uppercase; /* All caps for emphasis */
+  letter-spacing: 1px; /* Slightly spaced letters */
+}
+
+/* FAQ Card Paragraphs */
+.faq-card p {
+  font-family: 'Roboto', sans-serif; /* Simple and professional font */
+  font-size: 1em;
+  color: #424242; /* Neutral dark gray */
+  line-height: 1.6;
+}
+
+/* FAQ Card "Read More" Link */
+.faq-card a {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #0288d1; /* Bright blue */
+  text-decoration: none;
+  background: linear-gradient(to right, #64b5f6, #0288d1); /* Gradient button */
+  padding: 8px 16px;
+  border-radius: 50px; /* Rounded button */
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for "Read More" */
+.faq-card a:hover {
+  background: linear-gradient(to right, #0288d1, #64b5f6); /* Reverse gradient */
+  color: #ffffff;
+  transform: scale(1.1); /* Slight enlargement */
+}
+
+/* Navigation Buttons for Scrolling */
+.faq-navigation {
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  align-items: center;
+  margin-top: 10px;
+}
+
+.faq-navigation button {
+  background: linear-gradient(to right, #0288d1, #64b5f6); /* Gradient button */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5em;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 136, 209, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-navigation button:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 12px rgba(2, 136, 209, 0.5);
 }
